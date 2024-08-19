@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ .Values.metadata.namespace }}
+  name: redis-follower
+  labels:
+    app: redis
+    role: follower
+    tier: backend
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: redis
+    role: follower
+    tier: backend
